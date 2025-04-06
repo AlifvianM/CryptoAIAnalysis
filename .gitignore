@@ -1,0 +1,6 @@
+.venv/
+.venv_lang/
+.env
+hierarchial_agent.ipynb
+test_graph.ipynb
+.DS_Store

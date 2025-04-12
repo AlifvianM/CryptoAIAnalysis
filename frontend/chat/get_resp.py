@@ -1,21 +1,18 @@
 import requests
-headers = {
-    # 'User-Agent': 'Mozilla/5.0',
-    'accept': 'application/json',
-    'Content-Type': 'application/json'
-}
 
 
 def get_requests(question: str):
-    payload = {
-        'question':f'{question}',
-    }
     url = "http://127.0.0.1:8000/api/chat"
-    response = requests.post(
-        url, 
-        headers=headers, 
-        data=payload
-    )
+    headers = {
+        "accept": "application/json",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "question": question
+    }
+    response = requests.post(url, headers=headers, json=data)
+    return response.json()
 
-    print('Response :', response)
-    return response
+if __name__ == '__main__':
+    res = get_requests("Lakukan analisis Bitcoin dan berikan rekomendasi.")
+    print(res)

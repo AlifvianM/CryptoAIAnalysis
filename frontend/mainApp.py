@@ -1,4 +1,3 @@
-import pandas as pd
 import streamlit as st
 
 from chat.get_resp import get_requests

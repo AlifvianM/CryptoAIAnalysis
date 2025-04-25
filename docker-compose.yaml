@@ -1,0 +1,25 @@
+version: '3.8'  # Gunakan versi terbaru
+
+services:
+  fastapi:
+    build: 
+      context: ./backend
+    ports:
+      - "8000:8000"  # Host:Container harus sama
+    volumes:
+      - ./backend/api:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FASTAPI_RELOAD=1  # Untuk auto-reload
+    restart: unless-stopped
+    env_file: ".env"
+
+  streamlit:
+    build: 
+      context: ./frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend/:/frontend_app
+    restart: unless-stopped
+    env_file: ".env"

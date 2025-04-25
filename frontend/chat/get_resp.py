@@ -2,7 +2,7 @@ import requests
 
 
 def get_requests(question: str):
-    url = "http://127.0.0.1:8000/api/chat"
+    url = "http://fastapi:8000/api/chat" #http://127.0.0.1:8000/api/chat"
     headers = {
         "accept": "application/json",
         "Content-Type": "application/json"
